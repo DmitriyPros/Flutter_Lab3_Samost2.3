@@ -1,33 +1,20 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.deepPurple,
-                Colors.black,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ), // LinearGradient
-          ), // BoxDecoration
-          child: Center(
-            child: Text(
-              "Привет! Меня зовут Дмитрий. Я студент группы ИСП-241.",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 32,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-          ), // Center
-        ), // Container
-      ), // Scaffold
-    ), // MaterialApp
-  ); // runApp
-} //Красивый код
+      home: Scaffold(body: NetworkImageWidget()),
+    ),
+  );
+}
+class NetworkImageWidget extends StatelessWidget {
+  const NetworkImageWidget({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Image.network(
+        'https://avatars.mds.yandex.net/i?id=fd43bcae004e2a3a24b9dc3451e8d19f_l-10465630-images-thumbs&n=13',
+      ), 
+    );
+  }
+}
